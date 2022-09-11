@@ -17,7 +17,7 @@ const elModalInner = elModal.querySelector(".anime__modal-inner");
 elModal.addEventListener("click", evt => {
   if (evt.target.matches(".anime__modal") || evt.target.matches(".btn-close")) {
     elModal.classList.remove("anime__modal-active");
-    document.body.classList.remove("overflow-hidden");
+    document.body.classList.remove("overr");
 
   } else {
     elModal.classList.add("anime__modal-active");
@@ -30,7 +30,7 @@ function btnModal(btns, data) {
     btn.addEventListener("click", () => {
 
       elModal.classList.add("anime__modal-active");
-      document.body.classList.add("overflow-hidden");
+      document.body.classList.add("overr");
 
       const closeBtn = document.createElement("button");
       closeBtn.className = "position-absolute btn btn-close anime__close";

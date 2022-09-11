@@ -91,12 +91,24 @@ body {
   height: 430px;
 }
 
+.overr {
+  overflow: hidden;
+}
+
+
 @media only screen and (max-width:576px) {
   .anime__modal-inner {
+    padding: 20px 0px;
+    max-width: 300px;
     height: auto;
   }
 
   .anime__modal-img {
     width: 100%;
   }
+
+  .overr {
+    overflow: scroll;
+  }
+
 }
