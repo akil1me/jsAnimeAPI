@@ -69,14 +69,11 @@ body {
   height: 460px;
   border-radius: 20px;
   background-color: white;
+  overflow-y: scroll;
 }
 
 .anime__modal-active {
   top: 0;
-}
-
-.anime__modal-box {
-  overflow-y: scroll;
 }
 
 .anime__close {
