@@ -1,0 +1,105 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+body {
+  font-family: "Public Sans", sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.anime__form {
+  max-width: 500px;
+}
+
+.anime__item {
+  width: 230px;
+}
+
+.anime__more-info {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.anime__modal {
+  background: rgba(0, 0, 0, 0.456);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 200%;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  transition: top 0.5s linear;
+}
+
+.anime__modal-inner {
+  display: flex;
+  max-width: 700px;
+  height: 460px;
+  border-radius: 20px;
+  background-color: white;
+}
+
+.anime__modal-active {
+  top: 0;
+}
+
+.anime__modal-box {
+  overflow-y: scroll;
+}
+
+.anime__close {
+  top: 10px;
+  right: 10px;
+  transition: transform 0.5s ease;
+}
+
+.anime__close:hover {
+  transform: rotate(45deg) scale(1.2);
+}
+
+.anime__modal-img {
+  width: 330px;
+  height: 430px;
+}
+
+@media only screen and (max-width:576px) {
+  .anime__modal-inner {
+    height: auto;
+  }
+
+  .anime__modal-img {
+    width: 100%;
+  }
+}
