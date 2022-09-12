@@ -56,11 +56,11 @@ body {
   justify-content: center;
   align-items: center;
   position: fixed;
-  top: 200%;
-  bottom: 0;
+  top: -100%;
   right: 0;
+  bottom: 100%;
   left: 0;
-  transition: top 0.5s linear;
+  transition: top 0.3s linear;
 }
 
 .anime__modal-inner {
@@ -74,6 +74,7 @@ body {
 
 .anime__modal-active {
   top: 0;
+  bottom: 0;
 }
 
 .anime__close {

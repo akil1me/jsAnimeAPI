@@ -72,7 +72,7 @@ const rednderAnime = datum => {
     elFragment.append(copyFragment);
   })
 
-  elResultList.appendChild(elFragment)
+  elResultList.appendChild(elFragment);
 }
 
 // Error
@@ -88,16 +88,15 @@ function error(err) {
 // async fetch
 const searchAnime = async name => {
   try {
-    const response = await fetch(`https://api.jikan.moe/v4/anime?q=${name}&sfw`).finally(function spinnerAdd() {
-      elSpinner.classList.add("d-none");
-    });
+    const response = await fetch(`https://api.jikan.moe/v4/anime?q=${name}&sfw`)
+      .finally(spinnerAdd);
     const data = await response.json();
     // render
     rednderAnime(data.data);
   }
 
   catch (err) {
-    error(err)
+    error(err);
     console.log("err");
   }
 }
@@ -106,12 +105,16 @@ function spinnerRemove() {
   elSpinner.classList.remove("d-none");
 }
 
+function spinnerAdd() {
+  elSpinner.classList.add("d-none");
+}
+
 searchAnime("shingeki no kyojin");
 
 elForm.addEventListener("submit", evt => {
   evt.preventDefault();
   elResultList.innerHTML = null;
-  spinnerRemove()
+  spinnerRemove();
 
   const inputValue = elInput.value.toLowerCase().trim();
 
@@ -120,4 +123,3 @@ elForm.addEventListener("submit", evt => {
   elInput.value = "";
 
 })
-
