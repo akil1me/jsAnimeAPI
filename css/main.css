@@ -44,11 +44,6 @@ body {
   width: 230px;
 }
 
-.anime__more-info {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-}
 
 .anime__modal {
   background: rgba(0, 0, 0, 0.456);

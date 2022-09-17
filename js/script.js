@@ -11,6 +11,25 @@ const elTemplate = document.querySelector("#anime__template").content;
 // Add spinner
 const elSpinner = document.querySelector(".anime__spinner");
 
+// let bookmarkInfo = JSON.parse(localStorage.getItem("anime"))
+// let bookmarkArr = bookmarkInfo || [];
+
+
+const animeIDD = async name => {
+  try {
+    const response = await fetch(`https://api.jikan.moe/v4/anime?q=${name}&sfw`)
+      .finally(spinnerAdd);
+    const data = await response.json();
+
+
+  }
+
+  catch (err) {
+    error(err);
+    console.log("err");
+  }
+}
+
 // Modal
 const elModal = document.querySelector(".anime__modal");
 const elModalInner = elModal.querySelector(".anime__modal-inner");
@@ -57,6 +76,8 @@ const rednderAnime = datum => {
 
   const elFragment = document.createDocumentFragment();
 
+
+
   datum.forEach(data => {
     const copyFragment = elTemplate.cloneNode(true);
 
@@ -65,9 +86,12 @@ const rednderAnime = datum => {
 
     copyFragment.querySelector(".anime__card-title").innerHTML = data.title.split(" ").slice(0, 5).join(" ");
 
+    copyFragment.querySelector(".anime__bookmark-button").dataset.malID = data.mal_id;
+
     const btns = copyFragment.querySelectorAll(".anime__more-info");
 
     btnModal(btns, data);
+
 
     elFragment.append(copyFragment);
   })
@@ -93,6 +117,9 @@ const searchAnime = async name => {
     const data = await response.json();
     // render
     rednderAnime(data.data);
+    Bookdata(data.data)
+    // console.log(data.data);
+
   }
 
   catch (err) {
@@ -123,3 +150,22 @@ elForm.addEventListener("submit", evt => {
   elInput.value = "";
 
 })
+
+
+function Bookdata(data) {
+  elResultList.addEventListener("click", evt => {
+    if (evt.target.matches(".anime__bookmark-button")) {
+      let animeID = evt.target.dataset.malID;
+
+      // console.log(animeID);
+      let animeFind = data.find(item => item.mal_id == animeID);
+
+      console.log(animeFind);
+
+      // bookmarkArr.push(animeFind);
+
+      // localStorage.setItem("anime", JSON.stringify(bookmarkArr));
+    }
+  })
+
+}

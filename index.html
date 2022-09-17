@@ -18,8 +18,28 @@
     <section class="anime">
       <div class="anime__conrainer container">
         <h1 class="anime__title text-center py-4">Search your favorite Anime</h1>
-        <div class="anime__inner">
-          <form class="anime__form mb-4" autocomplete="off">
+        <div class="anime__inner row">
+          <div class="col-3">
+            <!-- BOOKMARK -->
+            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
+              aria-controls="offcanvasExample">
+              BOOKMARK
+            </button>
+
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
+              aria-labelledby="offcanvasExampleLabel">
+              <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+              </div>
+              <div class="offcanvas-body">
+                <ul>
+
+                </ul>
+              </div>
+            </div>
+          </div>
+          <form class="anime__form mb-4 col-9" autocomplete="off">
             <div class="row">
               <div class="col-10">
                 <input class="anime__input form-control" type="text" name="user-search" placeholder="serch anime...."
@@ -31,11 +51,12 @@
               </div>
             </div>
           </form>
-
-          <ul
-            class="amine__result-list list-unstyled m-0 d-flex flex-wrap justify-content-center justify-content-sm-evenly">
-          </ul>
         </div>
+
+        <ul
+          class="amine__result-list list-unstyled m-0 d-flex flex-wrap justify-content-center justify-content-sm-evenly">
+        </ul>
+      </div>
       </div>
 
       <div
@@ -60,7 +81,21 @@
         <h2 class="anime__card-title h4 text-dark"></h2>
 
       </div>
-      <button class="anime__more-info btn btn-danger ">more info</button>
+      <div class="d-flex align-items-center justify-content-around mt-lg-4">
+        <button class="anime__bookmark-button btn btn-primary" type="button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmark-star"
+            viewBox="0 0 16 16">
+            <path
+              d="M7.84 4.1a.178.178 0 0 1 .32 0l.634 1.285a.178.178 0 0 0 .134.098l1.42.206c.145.021.204.2.098.303L9.42 6.993a.178.178 0 0 0-.051.158l.242 1.414a.178.178 0 0 1-.258.187l-1.27-.668a.178.178 0 0 0-.165 0l-1.27.668a.178.178 0 0 1-.257-.187l.242-1.414a.178.178 0 0 0-.05-.158l-1.03-1.001a.178.178 0 0 1 .098-.303l1.42-.206a.178.178 0 0 0 .134-.098L7.84 4.1z">
+            </path>
+            <path
+              d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z">
+            </path>
+          </svg>
+          book
+        </button>
+        <button class="anime__more-info btn btn-danger ">more info</button>
+      </div>
     </li>
   </template>
 
